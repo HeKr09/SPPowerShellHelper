@@ -10,9 +10,16 @@
     Author     : Henrik Krumbholz
 .EXAMPLE
     Create-SPUpsServiceApp.ps1 -DatabaseServer SP16_SQL -ProfileDBName "SP16_ServiceApp_UpsService_Profile" -ProfileSyncDBName "SP16_ServiceApp_UpsService_Sync" -ProfileSocialDBName "SP16_ServiceApp_UpsService_Social" -MySiteHostLocation "http://mysites.dev.local/" -MySiteManagedPath "personal"
+    Creates a new user profile service application calles "User Profile Service Application" at the sql server SP16_SQL with the specific database names, MySite host location and my site managed path.
+.EXAMPLE
     Create-SPUpsServiceApp.ps1 -DatabaseServer SP16_SQL -ProfileDBName "SP16_ServiceApp_UpsService_Profile" -ProfileSyncDBName "SP16_ServiceApp_UpsService_Sync" -ProfileSocialDBName "SP16_ServiceApp_UpsService_Social" -MySiteHostLocation "http://mysites.dev.local/" -MySiteManagedPath "personal" -ServiceAppName "UPS Service"
+    Creates a new user profile service application calles "UPS Service" at the sql server SP16_SQL with the specific database names, MySite host location and my site managed path.
+.EXAMPLE
     Create-SPUpsServiceApp.ps1 -DatabaseServer SP16_SQL -ProfileDBName "SP16_ServiceApp_UpsService_Profile" -ProfileSyncDBName "SP16_ServiceApp_UpsService_Sync" -ProfileSocialDBName "SP16_ServiceApp_UpsService_Social" -MySiteHostLocation "http://mysites.dev.local/" -MySiteManagedPath "personal" -ServiceAppName "UPS Service" -AppPoolName "Existing AppPool Shared"
+    Creates a new user profile service application calles "UPS Service" at the sql server SP16_SQL with the specific database names, MySite host location and my site managed path at the application pool "Existing AppPool Shared".
+.EXAMPLE
     Create-SPUpsServiceApp.ps1 -DatabaseServer SP16_SQL -ProfileDBName "SP16_ServiceApp_UpsService_Profile" -ProfileSyncDBName "SP16_ServiceApp_UpsService_Sync" -ProfileSocialDBName "SP16_ServiceApp_UpsService_Social" -MySiteHostLocation "http://mysites.dev.local/" -MySiteManagedPath "personal" -ServiceAppName "UPS Service" -AppPoolName "New AppPool App" -ManagedAccount "DEV\SP_Services"
+    Creates a new user profile service application calles "UPS Service" at the sql server SP16_SQL with the specific database names, MySite host location and my site managed path at the application pool "Existing AppPool Shared" and the managed account "DEV\SP_Services".
 .PARAMETER ManagedAccount
     The managed account to be used for a new application pool. If you want to create a new application pool you have to specify a managed account.
     Needs to be in the following format: DOMAIN\USER
