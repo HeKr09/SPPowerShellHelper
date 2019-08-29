@@ -150,17 +150,17 @@ Write-Verbose "Content access account set"
 
 Write-Verbose "Creating new topology"
 $active = Get-SPEnterpriseSearchTopology -SearchApplication $searchServiceApp -Active
-$clone = New-SPEnterpriseSearchTopology -SearchApplication $searchServiceApp -Clone –SearchTopology $active
+$clone = New-SPEnterpriseSearchTopology -SearchApplication $searchServiceApp -Clone -SearchTopology $active
 
 #Create new topology
 
 $searchServiceInst = Get-SPEnterpriseSearchServiceInstance
-$componentAdmin = New-SPEnterpriseSearchAdminComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst
-$componentContenProcessing = New-SPEnterpriseSearchContentProcessingComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst
-$componentAnalyticsProcessing = New-SPEnterpriseSearchAnalyticsProcessingComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst
-$componentCrawl = New-SPEnterpriseSearchCrawlComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst 
-$componentIndex = New-SPEnterpriseSearchIndexComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst
-$componentQueryProcessing = New-SPEnterpriseSearchQueryProcessingComponent –SearchTopology $clone -SearchServiceInstance $searchServiceInst
+$componentAdmin = New-SPEnterpriseSearchAdminComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst
+$componentContenProcessing = New-SPEnterpriseSearchContentProcessingComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst
+$componentAnalyticsProcessing = New-SPEnterpriseSearchAnalyticsProcessingComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst
+$componentCrawl = New-SPEnterpriseSearchCrawlComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst 
+$componentIndex = New-SPEnterpriseSearchIndexComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst
+$componentQueryProcessing = New-SPEnterpriseSearchQueryProcessingComponent -SearchTopology $clone -SearchServiceInstance $searchServiceInst
 Write-Verbose "New topology created"
 
 #Activate new topology
