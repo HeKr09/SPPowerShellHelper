@@ -172,7 +172,7 @@ Write-Verbose "New topology activated"
 # Delete old topology
 
 Write-Verbose "Deleting old topology"
-Get-SPEnterpriseSearchTopology -SearchApplication $ssa | ? { $_.State -eq "Inactive" } | Remove-SPEnterpriseSearchTopology -SearchApplication $ssa -Confirm:$false
+Get-SPEnterpriseSearchTopology -SearchApplication $searchServiceApp | ? { $_.State -eq "Inactive" } | Remove-SPEnterpriseSearchTopology -SearchApplication $searchServiceApp -Confirm:$false
 Write-Verbose "Old topologies removed"
 
 Write-Host "Search Service Application created"
