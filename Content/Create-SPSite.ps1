@@ -113,7 +113,7 @@ else {
 }
 
 $web = Get-SPWeb $Url
-if ($web -ne $null -and $web.AssociatedVisitorGroup -eq $null) {
+if ($null -ne $web -and $null -eq $web.AssociatedVisitorGroup) {
     Write-Verbose 'The Visitor Group does not exist. It will be created...'
     [Microsoft.SharePoint.SPSecurity]::RunWithElevatedPrivileges(
         {
