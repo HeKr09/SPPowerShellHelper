@@ -77,7 +77,7 @@ param(
 
     [Parameter(Mandatory = $false)]
     [string]
-    $SecondaryLogin,
+    $SecondaryLogin = $PrimaryLogin,
 
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
@@ -100,10 +100,6 @@ Add-PSSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
 ##############################
 
 Write-Verbose "Creating root site collection"
-
-if ([string]::IsNullOrEmpty($SecondaryLogin)) {
-    $SecondaryLogin = $PrimaryLogin
-}
 
 if ([string]::IsNullOrEmpty($ContentDB)) {
     New-SPSite -Url $Url -Name $Name –Description $Description -Template $SiteCollectionTemplate -OwnerAlias $PrimaryLogin -Language $Language -SecondaryOwnerAlias $SecondaryLogin | Out-Null
