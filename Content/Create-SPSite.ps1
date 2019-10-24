@@ -8,19 +8,19 @@
     File Name  : Create-SPSite.ps1
     Author     : Henrik Krumbholz
 .EXAMPLE  
-    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -Template "STS#1" -PrimaryLogin "dev\admin"
+    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -SiteCollectionTemplate "STS#1" -PrimaryLogin "dev\admin"
     Creates a new site collection with name "NewSite", url "http://sp.dev.local/newSite", template "STS#1" and the primary login "dev\admin".
 .EXAMPLE
-    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -Template "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB"
+    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -SiteCollectionTemplate "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB"
     Creates a new site collection with name "NewSite", url "http://sp.dev.local/newSite", template "STS#1" and the primary login "dev\admin" within the content database "TargetContentDB".
 .EXAMPLE
-    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -Template "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031
+    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -SiteCollectionTemplate "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031
     Creates a new site collection with name "NewSite", url "http://sp.dev.local/newSite", template "STS#1", language 1031 (german) and the primary login "dev\admin" within the content database "TargetContentDB".
 .EXAMPLE
-    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -Template "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031 -SecondaryLogin "dev\secondAdmin"
+    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -SiteCollectionTemplate "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031 -SecondaryLogin "dev\secondAdmin"
     Creates a new site collection with name "NewSite", url "http://sp.dev.local/newSite", template "STS#1", language 1031 (german), the primary admin "dev\admin" and the secondary admin "dev\secondAdmin" within the content database "TargetContentDB".
 .EXAMPLE
-    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -Template "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031 -SecondaryLogin "dev\secondAdmin" -Description "Site Description"
+    Create-SPSite.ps1 -Url "http://sp.dev.local/newSite" -Name "NewSite" -SiteCollectionTemplate "STS#1" -PrimaryLogin "dev\admin" -ContentDB "TargetContentDB" -Language 1031 -SecondaryLogin "dev\secondAdmin" -Description "Site Description"
     Creates a new site collection with name "NewSite", url "http://sp.dev.local/newSite", template "STS#1", language 1031 (german), description "Site Description", the primary admin "dev\admin" and the secondary admin "dev\secondAdmin" within the content database "TargetContentDB".
 .PARAMETER Url
     The url of the new site to be created. Needs to be full qualified.
@@ -30,7 +30,7 @@
     The name of the new site to be created.
 .PARAMETER Description
     The description of the new site to be created.
-.PARAMETER Template
+.PARAMETER SiteCollectionTemplate
     The template of the new site to be created. Needs to be noted as <WebTemplate#WebTemplateId>. For example: STS#1
 .PARAMETER PrimaryLogin
     The primary site collection administrator of the new site to be created. Needs to be noted as <Domain\Account>.
@@ -68,7 +68,7 @@ param(
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
     [string]
-    $Template,
+    $SiteCollectionTemplate,
 
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
