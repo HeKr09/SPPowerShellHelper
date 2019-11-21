@@ -171,7 +171,7 @@ $upsServiceApp = New-SPProfileServiceApplication -ApplicationPool $appPool -Name
 Write-Verbose "Service Application created"
 
 Write-Verbose "Creating Service Application Proxy"
-$bdcProxyServiceApp = New-SPProfileServiceApplicationProxy -ServiceApplication $upsServiceApp -Name $($ServiceAppName + " Proxy")
+$upsProxyServiceApp = New-SPProfileServiceApplicationProxy -ServiceApplication $upsServiceApp -Name $($ServiceAppName + " Proxy")
 Write-Verbose "Service Application Proxy created"
 
 Write-Host "User Profile Service Application created"
