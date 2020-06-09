@@ -36,7 +36,7 @@ if($PSCmdlet.ParameterSetName -eq "SharePoint")
     Write-Verbose "Adding SharePoint install account to remote desktop users"
     Add-ADGroupMember -Identity "Remote Desktop Users" -Members $SpInstallAccountName
 
-    Write-Verbose "Adding SharePoint install account to remote desktop users"
+    Write-Verbose "Adding SharePoint farm account to remote desktop users"
     Add-ADGroupMember -Identity "Remote Desktop Users" -Members $SpFarmAccountName
 }
 
