@@ -83,14 +83,14 @@ function SetCss{
 #
 ##############################
 
-if($PSCmdlet.ParameterSetName -eq "SingleWeb")
+if($PSCmdlet.ParameterSetName -eq "WholeSiteCollection")
 {
     $site = Get-SPSite $SiteUrl
     SetCss -url $site.RootWeb.Url -css $CssUrl
     $site.Dispose()
 }
 
-if($PSCmdlet.ParameterSetName -eq "WholeSiteCollection")
+if($PSCmdlet.ParameterSetName -eq "SingleWeb")
 {
     SetCss -url $WebUrl -css $CssUrl
 }
